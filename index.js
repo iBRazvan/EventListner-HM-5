@@ -21,6 +21,7 @@ const movieObject = {
         id: 878,
         name: "Science Fiction"
       }
+
     ],
     homepage: "http://www.starwars.com/films/star-wars-episode-iv-a-new-hope",
     id: 11,
@@ -65,8 +66,12 @@ const movieObject = {
     title: "Star Wars",
     video: false,
     vote_average: 8.2,
-    vote_count: 17382
-  }
+    vote_count: 17382,
+
+}
+
+ 
+
   let submit = document.querySelector('button');
   let input = document.querySelector('input');
 
@@ -78,3 +83,44 @@ submit.addEventListener('click', () => {
 })
 
 console.log(movieObject)
+
+// SECTION 1 
+// 1.
+movieObject.budget = 0;
+console.log(movieObject.budget)
+
+// 2.
+movieObject.mustSee = true;
+console.log(movieObject.mustSee)
+
+// 3. NEREZOLVAT cu .this================================== //
+movieObject.getGenres = function () {
+  const { genres } = movieObject;
+  let genreNames = genres.map(genres => {
+    return genres.name;
+  })
+
+  console.log(`Type of genres : ${genreNames}`)
+ }
+movieObject.getGenres();
+// ======================================================== //
+
+// 4.
+movieObject.getProductionCompany = function () {
+  const { production_companies } = movieObject;
+  let productionCompanies = (production_companies);
+  console.log(productionCompanies)
+  return productionCompanies;
+}
+
+movieObject.getProductionCompany();
+
+// 5. 
+let textInput = document.getElementById("input")
+let btnInput = document.getElementById("btnSubmit")
+
+btnInput.addEventListener("click", () => {
+  console.log(textInput.value)
+  movieObject.movieDirector = textInput.value;
+  console.log(movieObject)
+}) 
