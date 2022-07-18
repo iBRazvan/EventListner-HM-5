@@ -1,126 +1,91 @@
-const movieObject = {
-    adult: false,
-    backdrop_path: "/jBFxXKCrViA88hhO59fDx0Av4P.jpg",
-    belongs_to_collection: {
-      id: 10,
-      name: "Star Wars Collection",
-      poster_path: "/bYbHqvRANCpuRTs0RAu10LhmVKU.jpg",
-      backdrop_path: "/d8duYyyC9J5T825Hg7grmaabfxQ.jpg"
-    },
-    budget: 11000000,
-    genres: [
-      {
-        id: 12,
-        name: "Adventure"
-      },
-      {
-        id: 28,
-        name: "Action"
-      },
-      {
-        id: 878,
-        name: "Science Fiction"
-      }
+// let submit = document.querySelector('button');
+// let input = document.querySelector('input');
 
-    ],
-    homepage: "http://www.starwars.com/films/star-wars-episode-iv-a-new-hope",
-    id: 11,
-    imdb_id: "tt0076759",
-    original_language: "en",
-    original_title: "Star Wars",
-    overview: "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
-    popularity: 109.854,
-    poster_path: "/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
-    production_companies: [
-      {
-        id: 1,
-        logo_path: "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
-        name: "Lucasfilm Ltd.",
-        origin_country: "US"
-      },
-      {
-        id: 25,
-        logo_path: "/qZCc1lty5FzX30aOCVRBLzaVmcp.png",
-        name: "20th Century Fox",
-        origin_country: "US"
-      }
-    ],
-    production_countries: [
-      {
-        iso_3166_1: "US",
-        name: "United States of America"
-      }
-    ],
-    release_date: "1977-05-25",
-    revenue: 775398007,
-    runtime: 121,
-    spoken_languages: [
-      {
-        english_name: "English",
-        iso_639_1: "en",
-        name: "English"
-      }
-    ],
-    status: "Released",
-    tagline: "A long time ago in a galaxy far, far away...",
-    title: "Star Wars",
-    video: false,
-    vote_average: 8.2,
-    vote_count: 17382,
 
-}
+// submit.addEventListener('click', () => {
+  
+//   movieObject.movieDirector = input.value;
+//   console.log(movieObject);
+// })
 
+// console.log(movieObject)
+
+
+let pageContainer = document.createElement("div")
+  document.body.appendChild(pageContainer)
+  pageContainer.classList.add("pageContainer")
+  pageContainer.style = "display:flex; flex-direction: row; width: 100%; height: 100vh; margin: 0; gap:5rem; background-color:grey; padding: 10rem"
+// Div-ul din stanga cu imput uri 
+let inputDiv = document.createElement("div")
+  pageContainer.appendChild(inputDiv)
+  inputDiv.classList.add("inputDiv")
+  inputDiv.style = "display:flex; flex-direction: column; ;padding:2rem; border-radius:10px; background: rgb(154,255,103); background: linear-gradient(90deg, rgba(154,255,103,1) 0%, rgba(0,190,255,1) 100%); border: 5px solid black"
+let fNamePara = document.createElement("h4")
+    inputDiv.appendChild(fNamePara)
+    fNamePara.innerHTML = "First Name"
+let firstNameImput = document.getElementById("firstNameInput")
+  inputDiv.appendChild(firstNameImput)
+let lNamePara = document.createElement("h4")
+    inputDiv.appendChild(lNamePara)
+    lNamePara.innerHTML = "Last Name"
+let lastNameImput = document.getElementById("lastNameInput")
+  inputDiv.appendChild(lastNameImput)
+let genderPara = document.createElement("h4")
+  inputDiv.appendChild(genderPara)
+  genderPara.innerHTML = "Gender"
+
+let maleGenderDiv = document.createElement("div")
+  inputDiv.appendChild(maleGenderDiv)
+  maleGenderDiv.style = "display:flex; flex-direction:row; padding: 0; align-items: center; justify-content: center; gap: 10px"
+    let radioMale = document.getElementById("radioBtnM")
+    maleGenderDiv.appendChild(radioMale)
+    let maleTxt = document.createElement("h4")
+    maleGenderDiv.appendChild(maleTxt)
+      maleTxt.innerHTML = "Male"
+
+let femaleGenderDiv = document.createElement("div")
+  inputDiv.appendChild(femaleGenderDiv)
+  femaleGenderDiv.style = "display:flex; flex-direction:row; padding: 0; align-items: center; justify-content: center; gap: 10px"
+    let radioFemale = document.getElementById("radioBtnF")
+      femaleGenderDiv.appendChild(radioFemale)
+      let femaleTxt = document.createElement("h4")
+      femaleGenderDiv.appendChild(femaleTxt)
+      femaleTxt.innerHTML = "Female"
+
+let messageInput = document.getElementById("messageInput")
+  inputDiv.appendChild(messageInput)
+let submitBtn = document.getElementById("submitBtn")
+  inputDiv.appendChild(submitBtn)
+
+
+// Div-ul din dreapta cu output-uri
+  let outputDiv = document.createElement("div")
+    pageContainer.appendChild(outputDiv)
+    outputDiv.classList.add("outputDiv")
+    outputDiv.style = "display: flex; flex-direction: column; padding: 1rem; justify-content: start; align-items:center; border-radius:10px; height: 100%; width: 50vw;  background: rgb(154,255,103); background: linear-gradient(90deg, rgba(154,255,103,1) 0%, rgba(0,190,255,1) 100%); border: 5px solid black"
+  let outputContainer = document.createElement("div")
+    outputDiv.appendChild(outputContainer)
+    outputContainer.classList.add("outputContainer")
+    outputContainer.style = "display: flex; height: 75px; width: 300px; border:3px solid black; border-radius:10px; background-color: white"
+  let messageParagraph = document.createElement("p")
+    outputContainer.appendChild(messageParagraph)
+    // messageParagraph.innerHTML = "This is a messaage"
+  let authorGenreParagraph = document.createElement("p")
+    outputContainer.appendChild(authorGenreParagraph)
+    // authorGenreParagraph.innerHTML = "by Name genre"
+    authorGenreParagraph.style = "display: flex; align-items: end;"
+
+// JS SCRIPT
+
+  let radioBtnValue = "";
+  submitBtn.addEventListener("click", () => {
+    document.getElementsByName("genderRadioBtn")
+    .forEach(radio => {
+        if(radio.checked) {
+          radioBtnValue = radio.value;
+        }
+    })
  
-
-  let submit = document.querySelector('button');
-  let input = document.querySelector('input');
-
-
-submit.addEventListener('click', () => {
-    console.log(input.value)
-    movieObject.movieDirector = input.value;
-    console.log(movieObject);
-})
-
-console.log(movieObject)
-
-// SECTION 1 
-// 1.
-movieObject.budget = 0;
-console.log(movieObject.budget)
-
-// 2.
-movieObject.mustSee = true;
-console.log(movieObject.mustSee)
-
-// 3. NEREZOLVAT cu .this================================== //
-movieObject.getGenres = function () {
-  const { genres } = movieObject;
-  let genreNames = genres.map(genres => {
-    return genres.name;
-  })
-
-  console.log(`Type of genres : ${genreNames}`)
- }
-movieObject.getGenres();
-// ======================================================== //
-
-// 4.
-movieObject.getProductionCompany = function () {
-  const { production_companies } = movieObject;
-  let productionCompanies = (production_companies);
-  console.log(productionCompanies)
-  return productionCompanies;
-}
-
-movieObject.getProductionCompany();
-
-// 5. 
-let textInput = document.getElementById("input")
-let btnInput = document.getElementById("btnSubmit")
-
-btnInput.addEventListener("click", () => {
-  console.log(textInput.value)
-  movieObject.movieDirector = textInput.value;
-  console.log(movieObject)
-}) 
+      messageParagraph.innerHTML = `"${messageInput.value}"`
+      authorGenreParagraph.innerHTML = `by ${firstNameImput.value} ${lastNameImput.value}, ${radioBtnValue} `
+    })
